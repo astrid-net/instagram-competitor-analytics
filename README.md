@@ -11,5 +11,6 @@ Python version used in this software is 3.7.3 and idk if it works on other versi
 
 I haven't done the requirements file because idk really well how to make it and because I don't remember the version of package used. This is an old project.
 PS.This project is 1 yr old. Some bugs with new library version could occurr. 
+PS.Change Directory and credentials of account.
 
 # COMMERCIAL USE IS FORBIDDEN.
