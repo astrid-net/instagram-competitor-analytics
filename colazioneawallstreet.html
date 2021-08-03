@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>colazioneawallstreet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <style media="screen">
+  .text{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    text-align: left;
+    color: #093652;
+  }
+  #title{
+    font-size: 60px;
+    font-weight: 800;
+    text-align: left;
+    letter-spacing: 1px;
+    line-height: 100px;
+  }
+  #subtitle{
+    font-size: 37px;
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+  #paragraph{
+    padding-top: 10px;
+    font-size: 23px;
+    font-weight: 400;
+  }
+  .main-pic{
+    position: relative;
+    width: 180px;
+    height: 180px;
+    left: 50%;
+    margin-left: -90px;
+    border-radius: 300px;
+    background-color: red;
+    background-image: url(https://instagram.fbri1-1.fna.fbcdn.net/v/t51.2885-19/s320x320/107168625_1334726243389132_8853294228279775144_n.jpg?_nc_ht=instagram.fbri1-1.fna.fbcdn.net&_nc_ohc=9E05Qi24--8AX-rEUPj&oh=b2d48a84265f35ff2fde27f386a10ec7&oe=5F39950E);
+    background-size: cover;
+  }
+  .container{
+    position: absolute;
+    width: 800px;
+    padding-bottom: 30px;
+    top: 100px;
+    left: 50%;
+    margin-left: -420px;
+    display: inline-block;
+  }
+
+  .panel{
+    position: relative;
+    padding-bottom: 20px;
+    width: 100%;
+  }
+  #bar-colors{
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  .bar{
+    position: relative;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Raleway';
+    font-weight: 300;
+  }
+  #warm{
+    width: 20.4%;
+    background-color: #e85656;
+    color: #e85656;
+  }
+  #cold{
+    width: 14.799999999999999%;
+    background-color: #6eb2d4;
+    color: #6eb2d4;
+    left: -5px;
+  }
+  .cold-warm{
+    width: 100%;
+    height: 10px;
+    background-color: #e8e8e8;
+  }
+  .evidence{
+    margin-top: 50px;
+    font-family: 'Muli', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    color: 	#1685cc;
+  }
+  #hours{
+    text-align: center;
+  }
+  table.blueTable {
+    width: 100%;
+    text-align: left;
+
+  }
+  table.blueTable td, table.blueTable th {
+    padding: 10px 10px;
+  }
+  table.blueTable tbody td {
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    padding: 20px;
+  }
+  table.blueTable thead {
+    background: #0f5c8c;
+  }
+  table.blueTable thead th {
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 20px;
+  }
+
+  @media screen and (max-width: 800px){
+    #title{
+      font-size: 60px;
+    }
+    #subtitle{
+      font-size: 40px;
+    }
+    #paragraph{
+      font-size: 20px;
+    }
+    .container{
+      width: 98%;
+      margin-left: 0;
+      left: 1%;
+    }
+    .panel{
+      width: 100%;
+    }
+  }
+  </style>
+  <body>
+    <div class="container">
+      <h1 class="text" id="title">colazioneawallstreet</h1>
+      <div class="main-pic"></div>
+
+      <p class="text" id="paragraph"></p>
+      <h2 class="text" id='title'>Crescita Likes</h2>
+      <p class="text" id="subtitle">Crescita Breve Termine</p>
+      <p class="text" id="paragraph">Crescita Breve Termine: <span class="evidence">-0.34</span></p>
+      <div class="panel">
+        <canvas id="like-growth-st" width="100%" height="70px"></canvas>
+      </div>
+
+      <p class="text" id="subtitle">Crescita Lungo Termine</p>
+      <p class="text" id="paragraph">Crescita Lungo Termine: <span class="evidence">226.0</span></p>
+      <div class="panel">
+        <canvas id="like-growth-lt" width="100%" height="70px"></canvas>
+      </div>
+      <h2 class="text" id='title'>Crescita Commenti</h2>
+      <p class="text" id="subtitle">Crescita Breve Termine</p>
+      <p class="text" id="paragraph">Crescita Breve Termine: <span class="evidence">7.17</span></p>
+      <div class="panel">
+        <canvas id="comment-growth-st" width="100%" height="70px"></canvas>
+      </div>
+      <p class="text" id="subtitle">Crescita Lungo Termine</p>
+      <p class="text" id="paragraph">Crescita Lungo Termine: <span class="evidence">22.0</span></p>
+      <div class="panel">
+        <canvas id="comment-growth-lt" width="100%" height="70px"></canvas>
+      </div>
+      <h2 class="text" id="title">Statistiche Post</h2>
+      <h2 class="text" id='subtitle'>Tipologie Più Usate</h2>
+
+        <canvas id="type-post" width="100%" height="70px"></canvas>
+
+      <h2 class="text" id='subtitle'>Colori Più Utilizzati</h2>
+      <div class="panel">
+        <canvas id="colors" width="100%" height="70px"></canvas>
+      </div>
+      <div class="panel" id="bar-colors">
+        <div class="cold-warm">
+          <div class="bar" id="warm"><span style="position: relative; top: -30px;">caldi</span></div>
+          <div class="bar" id="cold"><span style="position: relative; top: -30px;">freddi</span></div>
+        </div>
+      </div>
+
+      <h2 class="text" id='subtitle'>Features</h2>
+      <div class="panel">
+        <p class="text" id="paragraph">Brillantezza: <span class="evidence">0.393</span> <span style="float: right;">Varianza Brillantezza: <span class="evidence">0.064</span></span></p>
+        <p class="text" id="paragraph">Saturazione: <span class="evidence">0.263</span> <span style="float: right;">Varianza Saturazione: <span class="evidence">0.073</span></span></p>
+      </div>
+
+      <h2 class="text" id='title'>Analisi Caption<br></h2>
+      <h2 class="text" id='subtitle'>Parole Più Utilizzate</h2>
+      <p class="text" id="paragraph">Lunghezza Media Caption: <span class="evidence">841.97</span></p>
+      <div class="panel">
+        <table class="blueTable">
+          <thead>
+            <tr>
+            <th>Parola</th>
+            <th>Numero</th>
+            <th>Freq Pes</th>
+            <th>Freq Pes Cum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <td>mercato</td><td>127</td><td>0.0052804457</td><td>0.0052804457</td></tr>
+            <tr>
+            <td>mercati</td><td>105</td><td>0.0043657228</td><td>0.0096461686</td></tr>
+            <tr>
+            <td>valore</td><td>80</td><td>0.003326265</td><td>0.0129724336</td></tr>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text" id='subtitle'>Analisi Emoji</h2>
+      <p class="text" id="paragraph">Frequenza Emoji: <span class="evidence">1.64</span></p>
+      <div class="panel">
+        <canvas id="emoji-most" width="100%" height="40px"></canvas>
+      </div>
+
+      <div class="panel">
+        <canvas id="emoji-family-most" width="100%" height="40px"></canvas>
+      </div>
+
+      <h2 class="text" id='subtitle'>Analisi Hashtag</h2>
+      <p class="text" id="paragraph">Frequenza Hashtag: <span class="evidence">8.94</span></p>
+      <div class="panel">
+        <canvas id="hashtag-most" width="100%" height="40px"></canvas>
+      </div>
+
+      <h2 class="text" id="title">Analisi Commenti<br></h2>
+
+      <h2 class="text" id='subtitle'>Parole Più Utilizzate</h2>
+      <div class="panel">
+        <table class="blueTable">
+          <thead>
+            <tr>
+            <th>Parola</th>
+            <th>Numero</th>
+            <th>Freq Pes</th>
+            <th>Freq Pes Cum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <td>info</td><td>158</td><td>0.0541281261</td><td>0.0541281261</td></tr>
+            <tr>
+            <td>post</td><td>16</td><td>0.0054813292</td><td>0.0596094553</td></tr>
+            <tr>
+            <td>interessante</td><td>14</td><td>0.0047961631</td><td>0.0644056184</td></tr>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text" id='subtitle'>Analisi Emoji</h2>
+      <p class="text" id="paragraph">Frequenza Utilizzo Emoji: <span class="evidence">0.97</span></p>
+      <div class="panel">
+        <canvas id="emoji-most-comment" width="100%" height="40px"></canvas>
+      </div>
+      <div class="panel">
+        <canvas id="emoji-fam-most-comment" width="100%" height="40px"></canvas>
+      </div>
+
+
+      <h2 class="text" id='title'>Statistiche sul Tempo</h2>
+
+      <h2 class="text" id='subtitle'>Post per Anno</h2>
+      <div class="panel">
+        <canvas id="years" width="100%" height="50px"></canvas>
+      </div>
+
+      <h2 class="text" id='subtitle'>Post per Mese</h2>
+      <div class="panel">
+        <canvas id="months" width="100%" height="50px"></canvas>
+      </div>
+
+      <div class="panel">
+        <p class="text" id="subtitle">Orari Pubblicazioni più frequenti:
+          <p class="evidence" id="hours" style="float: 'center'; font-size:45px">13.0&nbsp;&nbsp;&nbsp;7.0&nbsp;&nbsp;&nbsp;17.0</p>
+        </p>
+      </div>
+    </div>
+
+  </body>
+  <script>
+  new Chart(document.getElementById('like-growth-st'), {
+    type: 'line',
+    data: {
+      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68],
+      datasets: [{
+          data: [102.66666666666667, 100.0, 68.33333333333333, 216.33333333333334, 72.33333333333333, 110.66666666666667, 121.66666666666667, 49.0, 52.666666666666664, 79.33333333333333, 84.0, 97.66666666666667, 187.33333333333334, 99.33333333333333, 112.0, 138.33333333333334, 70.0, 140.33333333333334, 73.0, 98.0, 99.0, 108.0, 161.66666666666666, 164.33333333333334, 94.33333333333333, 97.0, 103.66666666666667, 164.0, 85.66666666666667, 75.66666666666667, 68.0, 94.0, 98.33333333333333, 109.33333333333333, 92.0, 136.0, 120.0, 53.0, 59.666666666666664, 58.333333333333336, 118.33333333333333, 141.33333333333334, 85.33333333333333, 69.0, 87.0, 58.666666666666664, 114.0, 71.33333333333333, 92.33333333333333, 89.0, 58.666666666666664, 122.66666666666667, 191.33333333333334, 142.33333333333334, 54.333333333333336, 61.0, 95.33333333333333, 56.333333333333336, 145.0, 48.333333333333336, 35.666666666666664, 153.66666666666666, 52.333333333333336, 123.66666666666667, 96.66666666666667, 47.0, 91.66666666666667, 80.0, 80.66666666666667],
+          label: 'Crecita Likes Breve Termine',
+          borderColor: 'rgb(22, 133, 204)',
+          backgroundColor: 'rgba(22, 133, 204, 0.3)',
+        },
+      ]
+    },
+  });
+  </script>
+  <script>
+  new Chart(document.getElementById('like-growth-lt'), {
+    type: 'line',
+    data: {
+      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93],
+      datasets: [{
+          data: [113.8, 126.0, 121.6, 105.6, 89.8, 60.2, 112.2, 49.0, 104.4, 105.0, 93.0, 107.0, 146.8, 43.2, 80.4, 57.0, 91.6, 105.0, 69.6, 64.8, 86.6, 77.8, 79.4, 137.2, 86.8, 54.2, 118.2, 82.0, 116.0, 111.0, 89.0, 88.0, 70.0, 94.6, 66.4, 124.8, 38.6, 89.0, 65.0, 49.0, 100.6, 74.4, 74.2, 96.2, 97.6, 115.2, 56.8, 49.6, 74.8, 86.6, 84.4, 61.6, 103.0, 82.4, 60.8, 60.6, 83.0, 56.4, 71.2, 89.8, 79.4, 47.2, 97.6, 87.0, 83.4, 54.0, 139.6, 111.0, 52.0, 86.6, 46.6, 76.0, 113.8, 56.0, 50.8, 48.8, 101.6, 62.4, 82.0, 84.4, 80.4, 65.6, 109.6, 68.8, 50.6, 110.0, 66.0, 77.8, 58.0, 70.8, 78.2, 76.6, 75.0, 64.8],
+          label: 'Crecita Likes Breve Termine',
+          borderColor: 'rgb(22, 133, 204)',
+          backgroundColor: 'rgba(22, 133, 204, 0.3)',
+        },
+      ]
+    },
+  });
+  </script>
+  <script>
+  new Chart(document.getElementById('comment-growth-st'), {
+    type: 'line',
+    data: {
+      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68],
+      datasets: [{
+          data: [1.3333333333333333, 2.0, 4.0, 1.6666666666666667, 0.3333333333333333, 1.6666666666666667, 1.3333333333333333, 0.3333333333333333, 1.0, 2.0, 1.0, 0.6666666666666666, 2.6666666666666665, 2.0, 0.6666666666666666, 2.6666666666666665, 1.0, 3.3333333333333335, 1.0, 2.6666666666666665, 5.666666666666667, 2.6666666666666665, 7.333333333333333, 1.0, 0.6666666666666666, 0.6666666666666666, 2.0, 4.333333333333333, 0.0, 1.0, 1.3333333333333333, 1.0, 1.6666666666666667, 1.6666666666666667, 1.3333333333333333, 1.0, 4.666666666666667, 3.0, 0.0, 1.6666666666666667, 4.666666666666667, 2.6666666666666665, 0.3333333333333333, 1.0, 1.0, 0.0, 1.3333333333333333, 0.6666666666666666, 1.6666666666666667, 3.0, 0.6666666666666666, 1.3333333333333333, 4.0, 1.0, 0.3333333333333333, 1.3333333333333333, 1.3333333333333333, 1.0, 6.666666666666667, 0.0, 0.3333333333333333, 1.3333333333333333, 0.0, 4.333333333333333, 1.3333333333333333, 0.3333333333333333, 2.6666666666666665, 0.3333333333333333, 59.666666666666664],
+          label: 'Crescita Commenti Lungo Termine',
+          borderColor: 'rgb(22, 133, 204)',
+          backgroundColor: 'rgba(22, 133, 204, 0.3)',
+        },
+      ]
+    },
+  });
+  </script>
+  <script>
+  new Chart(document.getElementById('comment-growth-lt'), {
+    type: 'line',
+    data: {
+      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93],
+      datasets: [{
+          data: [1.6, 1.8, 3.4, 0.8, 1.0, 1.0, 2.4, 1.4, 2.4, 1.2, 1.6, 0.8, 3.4, 0.4, 2.4, 0.8, 0.4, 2.0, 1.0, 0.2, 0.4, 3.4, 1.0, 2.6, 3.6, 1.2, 2.4, 4.2, 0.6, 0.8, 1.0, 1.8, 0.2, 1.8, 1.4, 4.2, 0.6, 0.4, 1.6, 0.4, 1.2, 0.8, 1.6, 0.8, 1.0, 3.2, 2.2, 0.0, 3.0, 1.6, 2.2, 1.8, 1.4, 0.6, 1.0, 0.4, 0.8, 0.0, 0.8, 1.0, 0.8, 1.4, 3.0, 0.8, 2.0, 2.0, 3.0, 0.8, 0.6, 2.4, 1.6, 1.6, 0.6, 0.4, 1.2, 1.4, 1.2, 3.4, 1.6, 1.8, 0.4, 0.8, 1.8, 0.6, 1.0, 3.2, 1.4, 2.2, 1.8, 3.2, 1.2, 1.4, 0.4, 36.4],
+          label: 'Crescita Commenti Lungo Termine',
+          borderColor: 'rgb(22, 133, 204)',
+          backgroundColor: 'rgba(22, 133, 204, 0.3)',
+        },
+      ]
+    },
+  });
+  </script>
+
+  <script type='text/javascript'>
+  new Chart(document.getElementById('type-post'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Foto', 'Video', 'Sidecar'],
+    datasets: [{
+      label: 'Population (millions)',
+      backgroundColor: ['rgb(15, 92, 140)', 'rgb(22, 133, 204)', 'rgb(17, 111, 171)'],
+      data: [906, 56, 70]
+    }]
+  },
+});
+  </script>
+  <script type='text/javascript'>
+  new Chart(document.getElementById('colors'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Rosso', 'Marrone', 'Arancione', 'Giallo', 'Verde', 'Blu', 'Viola', 'Fucsia', 'Rosa', 'Bianco', 'Nero'],
+    datasets: [{
+      label: 'Colori più presenti',
+      backgroundColor: ['rgb(232, 86, 86)', 'rgb(181, 126, 67)', 'rgb(232, 147, 86)', 'rgb(232, 203, 86)', 'rgb(88, 191, 112)', 'rgb(88, 153, 191)', 'rgb(126, 104, 173)', 'rgb(199, 122, 204)', 'rgb(227, 181, 230)', 'rgb(240, 240, 240)', 'rgb(26, 26, 26)'],
+      data: [0.0, 0.074, 0.0, 0.074, 0.037, 0.167, 0.0, 0.0, 0.0, 0.37, 0.278]
+    }]
+  },
+});
+  </script>
+
+
+  <script>
+  new Chart(document.getElementById('emoji-most'), {
+    type: 'horizontalBar',
+    data: {
+      labels: ['check mark button', 'fire', 'OK hand'],
+      datasets: [
+        {
+          backgroundColor: ['rgb(15, 92, 140)', 'rgb(22, 133, 204)', 'rgb(15, 92, 140)'],
+          data: [0.181, 0.103, 0.103]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+    }
+  });
+  </script>
+
+  <script>
+  new Chart(document.getElementById('emoji-fam-most'), {
+    type: 'horizontalBar',
+    data: {
+      labels: ['People & Body', 'Symbols', 'Smileys & Emotion'],
+      datasets: [
+        {
+          backgroundColor: ['rgb(15, 92, 140)', 'rgb(22, 133, 204)', 'rgb(15, 92, 140)'],
+          data: [0.341, 0.276, 0.183]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+    }
+  });
+  </script>
+
+  <script>
+  new Chart(document.getElementById('hashtag-most'), {
+    type: 'horizontalBar',
+    data: {
+      labels: ['investimenti', 'colazioneawallstreet', 'CAWSAndreaDoria'],
+      datasets: [
+        {
+          backgroundColor: ['rgb(15, 92, 140)', 'rgb(22, 133, 204)', 'rgb(15, 92, 140)'],
+          data:  [0.037, 0.031, 0.016]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+    }
+  });
+  </script>
+
+
+  <script>
+  new Chart(document.getElementById('emoji-most-comment'), {
+    type: 'horizontalBar',
+    data: {
+      labels: ['fire', 'clapping hands', 'face with tears of joy'],
+      datasets: [
+        {
+          backgroundColor: ['rgb(15, 92, 140)', 'rgb(22, 133, 204)', 'rgb(15, 92, 140)'],
+          data: [0.131, 0.109, 0.068]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+    }
+  });
+  </script>
+
+  <script>
+  new Chart(document.getElementById('emoji-fam-most-comment'), {
+    type: 'horizontalBar',
+    data: {
+      labels: ['People & Body', 'Smileys & Emotion', 'Travel & Places'],
+      datasets: [
+        {
+          backgroundColor: ['rgb(15, 92, 140)', 'rgb(22, 133, 204)', 'rgb(15, 92, 140)'],
+          data: [0.352, 0.33, 0.168]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+    }
+  });
+  </script>
+
+  <script>
+  new Chart(document.getElementById('years'), {
+      type: 'bar',
+      data: {
+        labels: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+        datasets: [
+          {
+            label: 'Post per Anno',
+            backgroundColor: ['rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)'],
+            data: [0, 0, 0, 0, 0, 0, 0, 3, 224, 246]
+          }
+        ]
+      },
+      options: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Post Pubblicati per Anno'
+        }
+      }
+  });
+  </script>
+<script>
+new Chart(document.getElementById('months'), {
+    type: 'bar',
+    data: {
+      labels: ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd'],
+      datasets: [
+        {
+          label: 'Post per Mese',
+          backgroundColor: ['rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)', 'rgb(22, 133, 204)'],
+          data: [29, 40, 53, 60, 46, 51, 56, 41, 21, 19, 30, 27]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Post Pubblicati per Mese'
+      }
+    }
+});
+</script>
+</html>
