@@ -58,9 +58,9 @@ def find_competitors(general_data, name):
     driver.get('https://www.instagram.com/accounts/login/')
     sleep(5)
     
-    driver.find_element_by_xpath('//input[@name="username"]').send_keys('best_places2k20')
+    driver.find_element_by_xpath('//input[@name="username"]').send_keys('INSERT UR IG USM')
     sleep(1)
-    driver.find_element_by_xpath('//input[@name="password"]').send_keys('Polpetta1128')
+    driver.find_element_by_xpath('//input[@name="password"]').send_keys('INSERT UR IG PWD')
     sleep(1)
     driver.find_element_by_xpath('//button[@type="submit"]').click()
     sleep(3)
